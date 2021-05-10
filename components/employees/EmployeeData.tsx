@@ -13,7 +13,7 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
   const data = [
     {
       id: 'Name',
-      value: `${employee.firstName}, ${employee.lastName} ${employee.middleName || ''}`,
+      value: `${employee.firstName} ${employee.middleName || ''} ${employee.lastName}`,
     },
     {
       id: 'Identification',

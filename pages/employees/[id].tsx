@@ -30,13 +30,13 @@ const EmployeeDataPage = () => {
     setError('');
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/?id=${id}`);
       const json: ServerResponse = await res.json();
 
       if (json.code === 0) {
         setEmployeeData(json.data);
 
-        setTitle(`${json.data.lastName}, ${json.data.firstName} ${json.data.middleName || ''}`);
+        setTitle(`${json.data.firstName} ${json.data.middleName || ''} ${json.data.lastName}`);
         setSubtitle(`Employee #${json.data.uniqueId}`);
         return;
       }
