@@ -4,7 +4,7 @@ import Meta from '@/components/Meta';
 import Page from '@/components/page/Page';
 
 import { useRouter } from 'next/router';
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 
 interface ServerResponse {
   code: number;
@@ -16,28 +16,25 @@ const EmployeeDataPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const [ title, setTitle ] = useState('Server Secret Required');
-  const [ subtitle, setSubtitle ] = useState('Please provide the server secret.');
+  const [ title, setTitle ] = useState('Loading...');
+  const [ subtitle, setSubtitle ] = useState('Loading employee data...');
 
   const [ employeeData, setEmployeeData ] = useState<null | Employee>(null);
-  const [ secret, setSecret ] = useState('');
-
-  const [ sending, setSending ] = useState(false);
   const [ error, setError ] = useState('');
 
-  const authorize = async (e: FormEvent) => {
-    e.preventDefault();
+  const loadEmployee = async () => {
+    if (!id) {
+      return;
+    }
 
-    setSending(true);
     setError('');
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${id}?secret=${secret}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${id}`);
       const json: ServerResponse = await res.json();
 
       if (json.code === 0) {
         setEmployeeData(json.data);
-        setSending(false);
 
         setTitle(`${json.data.lastName}, ${json.data.firstName} ${json.data.middleName || ''}`);
         setSubtitle(`Employee #${json.data.uniqueId}`);
@@ -45,12 +42,15 @@ const EmployeeDataPage = () => {
       }
 
       setError(json.message ?? 'Internal Server Error');
-      setSending(false);
     } catch (err) {
       console.error(err);
       setError('Internal Server Error');
     }
   };
+
+  useEffect(() => {
+    loadEmployee();
+  }, [ id ]);
 
   return (
     <Page title={title} subtitle={subtitle}>
@@ -60,28 +60,17 @@ const EmployeeDataPage = () => {
         url={`/employees/${id}`}
       />
 
-      {!employeeData && (
-        <form onSubmit={authorize}>
-          <div className="input-group">
-            <label htmlFor="secret">Server secret:</label>
-            <input
-              type="password"
-              id="secret"
-              name="secret"
-              disabled={sending}
-              onChange={e => setSecret(e.currentTarget.value)}
-            />
-          </div>
-
-          <div className="input-group buttons">
-            <button type="submit" className="single-button" disabled={sending}>Submit</button>
-            {sending && <LoadingSpinner color="#fff" />}
-            {error.length > 0 && <small className="form-error">{error}</small>}
-          </div>
-        </form>
+      {!employeeData && !error && (
+        <div>
+          Loading...
+        </div>
       )}
 
       {employeeData && <EmployeeData employee={employeeData} />}
+
+      {error && error.length > 0 && (
+        <div>{error}</div>
+      )}
     </Page>
   );
 };

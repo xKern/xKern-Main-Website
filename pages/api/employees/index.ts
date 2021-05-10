@@ -73,7 +73,6 @@ export default async function addEmployee(req: NextApiRequest, res: NextApiRespo
   }
 
   const fields: EmployeeWithAuthCode = parseBody(req.body) as EmployeeWithAuthCode;
-  console.log(fields);
 
   if (fields.authCode !== SERVER_SECRET) {
     return res.status(403).json({

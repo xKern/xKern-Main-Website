@@ -68,7 +68,7 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
   return (
     <div className={styles.wrapper}>
       <div className="table-container">
-        {data.map(entry => (
+        {data.map(entry => entry.value && (
           <div className="row" key={entry.id}>
             <div className="column key">{entry.id}</div>
             <div className="column">{entry.value}</div>
