@@ -21,7 +21,22 @@ const MARITAL_STATUSES: EmployeeMaritalStatus[] = [
   'Separated',
   'Domestic partnership',
   'Complicated'
-];
+]
+
+export type EmployeeDepartment = 'Development'
+| 'General'
+| 'Operations';
+
+const DEPARTMENTS: EmployeeDepartment[] ={
+  'Development' : 'D',
+  'Human Resource' : 'H',
+  'Accounts' : 'A',
+  'Business' : 'B',
+  'marketing' : 'M',
+  'Operations' : 'O',
+  'General' : 'G',
+  'Legal' : 'L'
+}
 
 export interface EmployeeDataFormFields {
   firstName: string;
@@ -142,6 +157,24 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
             >
               {MARITAL_STATUSES.map(status => (
                 <option key={status} value={status}>{status}</option>
+              ))}
+            </select>
+          </div>
+        );
+      }
+
+      if (field === 'department') {
+        return (
+          <div className="input-group" key={field}>
+            <label htmlFor={field}>{field}:</label>
+            <select
+              name={field}
+              id={field}
+              disabled={sending}
+              onChange={update(field)}
+            >
+              {Object.entries(DEPARTMENTS).map(([k, v]) => (
+                <option key={v} value={v}>{k}</option>
               ))}
             </select>
           </div>
