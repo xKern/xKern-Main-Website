@@ -25,8 +25,8 @@ const Home = () => {
         >
           <h2>Vision To Innovation</h2>
           <p>
-            Bringing about simple but significant changes to how technology is interwoven in everyday life. Our products and services will heavily focus on user experience and accessibility. We strive to become the gold standard of software development with the quality of our software and services.
-          </p>
+            xKern is a software company that plans to bring about simple but significant changes to how technology is interwoven in everyday life. We intend to pave a foundation of our vision and start building up on it with breakthrough platforms. Our products and services will heavily focus on user experience and accessibility. We strive to become the gold standard of software development with the quality of our software and services.
+	 </p>
         </ImageBlock>
 
         <ImageBlock
@@ -47,7 +47,7 @@ const Home = () => {
         >
           <h2>Open Source Contributions</h2>
           <p>
-            The software and libraries we create will be partially or fully open source for others to refern, learn or contribute.
+            The software and libraries we create will be partially or fully open source for others to refer, learn or contribute.
           </p>
         </ImageBlock>
 
@@ -56,7 +56,7 @@ const Home = () => {
           id="image4"
           reverse={true}
         >
-          <h2>Socially Comitted</h2>
+          <h2>Socially Committed</h2>
           <p>
             We make our donations to charities and knowledge sources now and then to keep them running. Our donations are money, effort and knowledge. We believe in foundations that help humans and wildlife survive and thrive.
           </p>
@@ -69,7 +69,7 @@ const Home = () => {
         >
           <h2>Green Earth</h2>
           <p>
-            We plant a tree for every 200,000 INR we make. We have a commitment to our planet. In addition to being as eco-friendly as we can in our operations, we plant trees and nurture them for a better tomorrow. Join us in this.
+            We plant a tree for every 200,000 INR we make. We have a commitment to our planet. In addition to being as eco-friendly as we can in our operations, we plant trees and nurture them for a better tomorrow. Join us in this mission.
           </p>
         </ImageBlock>
 
