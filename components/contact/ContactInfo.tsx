@@ -17,8 +17,8 @@ const ContactInfo = () => {
       icon: faMobileAlt,
       title: 'Phone',
       lines: [
-        '+91 88485 61466',
-        '+91 96338 91413'
+        '+91 9288 01 8558',
+        '+91 9288 01 8556'
       ]
     },
     {
@@ -37,7 +37,8 @@ const ContactInfo = () => {
       icon: faEnvelope,
       title: 'Email',
       lines: [
-        'root@xkern.net'
+        'info@xkern.net',
+        'hrm@xkern.net'
       ]
     }
   ];
