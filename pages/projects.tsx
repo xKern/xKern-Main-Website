@@ -8,6 +8,47 @@ import { faDownload, faLink } from '@fortawesome/free-solid-svg-icons';
 const ProjectsPage = () => {
   const projects: Project[] = [
     {
+      name: 'K-nav',
+      subtitle: 'Under Development',
+      description: 'Redefining modern navigation solutions. Public transportation and digital payments at your fingertips. Find your buses, buy tickets and live-track buses from anywhere',
+      image: '/images/projects/knav.jpg',
+      underDevelopment: true
+    },
+
+    {
+      name: 'ReLive',
+      subtitle: 'Under Development',
+      description: 'Medical aid anytime anywhere. Consult doctors from your home, get medicines, emergency services and connect with various medical services easily.',
+      image: '/images/projects/relive.png',
+      underDevelopment: true
+    },
+
+    {
+      name: 'PrivacyTools',
+      subtitle: 'Proecting iOS users',
+      description: 'Protect your privacy on iOS devices by restricting how apps access permissions given to them, like contacts, camera, photos and microphone',
+      image: '/images/projects/privtools.jpg',
+      links: [
+        {
+          icon: faGithub,
+          url: 'https://github.com/arx8x/PrivacyTools/'
+        },
+        {
+          icon: faYoutube,
+          url: 'https://twitter.com/ARX8x/status/1271590611129253888'
+        },
+        {
+          icon:faLink,
+          url:  'https://www.reddit.com/r/jailbreak/comments/hdkxo2/beta_privacytools_control_how_apps_access_your/'
+        },
+        {
+          icon: faDownload,
+          url: 'https://apt.arx8x.net/net.arx8x.privacytools_0.2.2_iphoneos-arm.deb'
+        },
+      ]
+    },
+
+    {
       name: 'System Info',
       subtitle: '270k downloads',
       description: 'Get extensive information on your iOS device, see detailed battery usage stats and access to many other areas of iOS you normally can\'t access.',
@@ -50,31 +91,6 @@ const ProjectsPage = () => {
           icon: faLink,
           url: 'https://shsh.host/'
         }
-      ]
-    },
-
-    {
-      name: 'PrivacyTools',
-      subtitle: 'Proecting iOS users',
-      description: 'Protect your privacy on iOS devices by restricting how apps access permissions given to them, like contacts, camera, photos and microphone',
-      image: '/images/projects/privtools.jpg',
-      links: [
-        {
-          icon: faGithub,
-          url: 'https://github.com/arx8x/PrivacyTools/'
-        },
-        {
-          icon: faYoutube,
-          url: 'https://twitter.com/ARX8x/status/1271590611129253888'
-        },
-        {
-          icon:faLink,
-          url:  'https://www.reddit.com/r/jailbreak/comments/hdkxo2/beta_privacytools_control_how_apps_access_your/'
-        },
-        {
-          icon: faDownload,
-          url: 'https://apt.arx8x.net/net.arx8x.privacytools_0.2.2_iphoneos-arm.deb'
-        },
       ]
     },
 
