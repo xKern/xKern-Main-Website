@@ -27,7 +27,7 @@ const AddEmployeePage = () => {
     data.append('photo', fields.photo);
     data.append('idScan', fields.idScan);
 
-    const res = await fetch(process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/employee/create`, {
       method: 'POST',
       body: data
     });
@@ -41,7 +41,7 @@ const AddEmployeePage = () => {
       <Meta
         title="Add Employee"
         description="Add employee data."
-        url="/employees/add"
+        url="/add"
       />
 
       <EmployeeForm send={send} />

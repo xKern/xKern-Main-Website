@@ -30,14 +30,14 @@ const EmployeeDataPage = () => {
     setError('');
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/?id=${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/employee/get?id=${id}`);
       const json: ServerResponse = await res.json();
 
       if (json.code === 0) {
         setEmployeeData(json.data);
-
-        setTitle(`${json.data.firstName} ${json.data.middleName || ''} ${json.data.lastName}`);
-        setSubtitle(`Employee #${json.data.uniqueId}`);
+        const formattedName = `${json.data.firstName} ${json.data.middleName || ''} ${json.data.lastName}`;
+        setTitle(formattedName);
+        setSubtitle(json.data.designation);
         return;
       }
 
@@ -57,7 +57,7 @@ const EmployeeDataPage = () => {
       <Meta
         title={title}
         description={subtitle}
-        url={`/employees/${id}`}
+        url={`/${id}`}
       />
 
       {!employeeData && !error && (

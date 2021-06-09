@@ -114,7 +114,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
       setSending(false);
 
       if (res.code === 0) {
-        router.push(`/employees/${res.data.employee_id}`);
+        router.push(`/${res.data.employeeId}`);
         return;
       }
 

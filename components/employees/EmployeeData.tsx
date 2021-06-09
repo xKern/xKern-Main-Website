@@ -21,7 +21,7 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
     },
     {
       id: 'ID',
-      value: employee.id
+      value: employee.employeeId
     },
     {
       id: 'Department',
