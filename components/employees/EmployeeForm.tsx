@@ -28,7 +28,7 @@ export interface EmployeeDataFormFields {
   middleName?: string;
   lastName: string;
   identification: string;
-  id: string;
+  id?: string;
   department: string;
   mobile: string;
   email: string;
@@ -48,8 +48,8 @@ export interface EmployeeDataServerResponse {
   code: number;
   message: string;
   data?: {
-    employee_id?: string;
-    unique_id?: string;
+    id?: string;
+    uniqueId?: string;
   };
 }
 
@@ -114,7 +114,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
       setSending(false);
 
       if (res.code === 0) {
-        router.push(`/${res.data.employeeId}`);
+        router.push(`/${res.data.id}`);
         return;
       }
 
@@ -128,12 +128,25 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
     setSending(false);
   };
 
+  const substitutes = {
+    'id' : 'Employee ID',
+    'lastName' : 'Last Name',
+    'dob' : 'Date of Birth',
+    'middleName' : 'Middle Name',
+    'identification' : 'Aadhaar',
+    'bloodGroup' : 'Blood Group',
+    'joiningDate' : 'Joining Date',
+    'maritalStatus' : 'Marital Status',
+    'firstName' : 'First Name'
+  };
+
   const inputs = Object.keys(employeeData)
     .map(field => {
+      const fieldName = (substitutes[field]) ? substitutes[field] : field;
       if (field === 'maritalStatus') {
         return (
           <div className="input-group" key={field}>
-            <label htmlFor={field}>{field}:</label>
+            <label htmlFor={field}>{fieldName}:</label>
             <select
               name={field}
               id={field}
@@ -170,7 +183,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
 
       return (
         <div className="input-group" key={field}>
-          <label htmlFor={field}>{field}</label>
+          <label htmlFor={field}>{fieldName}</label>
           <input
             type={inputType}
             name={field}

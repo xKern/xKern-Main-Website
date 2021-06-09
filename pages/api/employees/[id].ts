@@ -17,7 +17,7 @@ export default function get(req: NextApiRequest, res: NextApiResponse) {
     ? JSON.parse(fs.readFileSync(DB_PATH, { encoding: 'utf8' }))
     : [];
 
-  const targetEmployee = db.find(employee => employee.employeeId === id);
+  const targetEmployee = db.find(employee => employee.id === id);
   if (!targetEmployee) {
     return res.status(404).json({
       code: 404,

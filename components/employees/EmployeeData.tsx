@@ -2,7 +2,7 @@ import styles from './EmployeeData.module.scss';
 import { EmployeeDataFormFields } from './EmployeeForm';
 
 export interface Employee extends Omit<EmployeeDataFormFields, 'photo' | 'idScan' | 'authCode'> {
-  employeeId?: string;
+  id?: string;
   uniqueId?: string;
 
   photo: string;
@@ -20,8 +20,8 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
       value: employee.identification
     },
     {
-      id: 'ID',
-      value: employee.employeeId
+      id: 'Employee ID',
+      value: employee.id
     },
     {
       id: 'Department',
