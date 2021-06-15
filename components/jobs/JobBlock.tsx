@@ -27,13 +27,13 @@ const JobBlock = ({ job, onSelected }: JobBlockParams) => {
       <div className={styles.description}>
         <p>{description}</p>
       </div>
-
-      <div className={styles.moreInfo}>
+      {url.length > 0 &&
+        <div className={styles.moreInfo}>
         <a href={url} target="_blank" rel="noreferrer noopener">
-          View full description
+        View full description
         </a>
-      </div>
-
+        </div>
+      }
       <div className={styles.buttonContainer}>
         <button className="primary" onClick={apply}>Apply</button>
       </div>
