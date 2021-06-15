@@ -7,6 +7,16 @@ import { useState } from 'react';
 const JobsPage = () => {
   const jobs: Job[] = [
     {
+      title: 'Business Relationship Manager',
+      description: 'Excellent Interpersonal and communication skill, 2 wheeler and a valid driving licence and minimum 2 years experince in marketing',
+      url: ''
+    },
+    {
+      title: 'Marketing Executive',
+      description: 'Smart and energetic applicants with great communication and presentations skills and more than 1 year of experience',
+      url: ''
+    },
+    {
       title: 'Solution Architect',
       description: 'Profound experience with technologies to architect our software solutions, plan and oversee the development our software',
       url: '/files/jd/Job_Description_Architect.pdf'
@@ -40,11 +50,6 @@ const JobsPage = () => {
       title: 'Backend Developer',
       description: 'Versed in python, python frameworks (fastAPI, django etc), ML, REST, SOAP, sockets and other modern backend software technologies',
       url: '/files/jd/Job_Description_Backend.pdf'
-    },
-    {
-      title: 'Marketing Executive',
-      description: 'Smart and energetic applicants with great communication and presentations skills and more than 1 year of experience',
-      url: ''
     },
     {
       title: 'Front Office and Administration',

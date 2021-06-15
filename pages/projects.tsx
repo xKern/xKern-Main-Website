@@ -16,7 +16,7 @@ const ProjectsPage = () => {
     },
 
     {
-      name: 'ReLive',
+      name: 'ReMedic',
       subtitle: 'Under Development',
       description: 'Medical aid anytime anywhere. Consult doctors from your home, get medicines, emergency services and connect with various medical services easily.',
       image: '/images/projects/relive.png',
