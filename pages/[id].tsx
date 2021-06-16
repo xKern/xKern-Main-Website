@@ -15,6 +15,7 @@ interface ServerResponse {
 const EmployeeDataPage = () => {
   const router = useRouter();
   const { id } = router.query;
+  const authCode = router.query.code;
 
   const [ title, setTitle ] = useState('Loading...');
   const [ subtitle, setSubtitle ] = useState('Loading employee data...');
@@ -27,10 +28,13 @@ const EmployeeDataPage = () => {
       return;
     }
 
+    const urlSuffix = authCode ? `employee/getFull?id=${id}&auth_code=${authCode}` : `employee/get?id=${id}`;
+
     setError('');
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/employee/get?id=${id}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${urlSuffix}`);
+
       const json: ServerResponse = await res.json();
 
       if (json.code === 0) {
