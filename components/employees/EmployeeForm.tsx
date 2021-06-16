@@ -33,7 +33,7 @@ export interface EmployeeDataFormFields {
   mobile: string;
   email: string;
   bloodGroup: string;
-  dob: string;
+  birthDate: string;
   joiningDate: string;
   maritalStatus: EmployeeMaritalStatus;
   address: string;
@@ -68,7 +68,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
     mobile: '',
     email: '',
     bloodGroup: '',
-    dob: '',
+    birthDate: '',
     joiningDate: '',
     maritalStatus: 'Single',
     address: '',

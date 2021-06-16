@@ -18,7 +18,7 @@ const AddEmployeePage = () => {
     data.append('mobile', fields.mobile);
     data.append('email', fields.email);
     data.append('bloodGroup', fields.bloodGroup);
-    data.append('dob', fields.dob);
+    data.append('birthDate', fields.birthDate);
     data.append('joiningDate', fields.joiningDate);
     data.append('maritalStatus', fields.maritalStatus);
     data.append('address', fields.address);

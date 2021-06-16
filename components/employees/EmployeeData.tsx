@@ -16,7 +16,7 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
       value: `${employee.firstName} ${employee.middleName || ''} ${employee.lastName}`,
     },
     {
-      id: 'Identification',
+      id: 'Aadhar',
       value: employee.identification
     },
     {
@@ -41,7 +41,7 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
     },
     {
       id: 'Date of birth',
-      value: employee.dob
+      value: employee.birthDate
     },
     {
       id: 'Joining date',
@@ -58,11 +58,11 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
     {
       id: 'Designation',
       value: employee.designation
-    },
+    }/*,
     {
       id: 'ID scan',
       value: <a href={employee.idScan} target="_blank">(view attachment)</a>
-    }
+    }*/
   ];
 
   return (
