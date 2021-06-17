@@ -24,8 +24,13 @@ const AddEmployeePage = () => {
     data.append('address', fields.address);
     data.append('designation', fields.designation);
     data.append('authCode', fields.authCode);
-    data.append('photo', fields.photo);
-    data.append('idScan', fields.idScan);
+
+    if(fields.photo){
+      data.append('photo', fields.photo);
+    }
+    if(fields.idScan){
+      data.append('idScan', fields.idScan);
+    }
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/employee/create`, {
       method: 'POST',
