@@ -40,6 +40,8 @@ export interface EmployeeDataFormFields {
   designation: string;
   photo: File | null;
   idScan: File | null;
+  dataFilesUrl?: string;
+  vcfUrl?: string;
 
   authCode: string;
 }
@@ -177,7 +179,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
         );
       }
 
-      const inputType = [ 'dob', 'joiningDate' ].includes(field)
+      const inputType = [ 'birthDate', 'joiningDate' ].includes(field)
         ? 'date'
         : field === 'authCode' ? 'password' : 'text';
 

@@ -58,11 +58,15 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
     {
       id: 'Designation',
       value: employee.designation
-    }/*,
+    },
+    // {
+    //   id: 'Data Files',
+    //   value: <a href={employee.dataFilesUrl} target="_blank">(view attachment)</a>
+    // },
     {
-      id: 'ID scan',
-      value: <a href={employee.idScan} target="_blank">(view attachment)</a>
-    }*/
+      id: 'Contact Card',
+      value: <a href={employee.vcfUrl} target="_blank">Add to Contacts</a>
+    }
   ];
 
   return (
