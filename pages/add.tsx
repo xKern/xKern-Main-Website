@@ -1,8 +1,10 @@
 import EmployeeForm, { EmployeeDataFormFields, EmployeeDataServerResponse } from '@/components/employees/EmployeeForm';
 import Meta from '@/components/Meta';
 import Page from '@/components/page/Page';
+import { useRouter } from 'next/router';
 
 const AddEmployeePage = () => {
+  const router = useRouter();
   const send = async (fields: EmployeeDataFormFields): Promise<EmployeeDataServerResponse> => {
     const data = new FormData();
     data.append('firstName', fields.firstName);
@@ -32,8 +34,10 @@ const AddEmployeePage = () => {
       data.append('idScan', fields.idScan);
     }
 
+    const {authToken} = router.query;
     const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/employee/create`, {
       method: 'POST',
+      headers: authToken ? {"X-Auth-Token" : authToken.toString()} : {},
       body: data
     });
 

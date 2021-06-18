@@ -16,6 +16,7 @@ const EmployeeDataPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const authCode = router.query.code;
+  const {authToken} = router.query
 
   const [ title, setTitle ] = useState('Loading...');
   const [ subtitle, setSubtitle ] = useState('Loading employee data...');
@@ -28,12 +29,18 @@ const EmployeeDataPage = () => {
       return;
     }
 
-    const urlSuffix = authCode ? `employee/getFull?id=${id}&auth_code=${authCode}` : `employee/get?id=${id}`;
+    const endpoint = (authCode || authToken) ? "getFull" : "get";
+    let urlSuffix = `employee/${endpoint}?id=${id}`;
+    if(authCode){
+      urlSuffix += `&auth_code=${authCode}`;
+    }
 
     setError('');
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${urlSuffix}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_EMPLOYEE_API_ENDPOINT}/${urlSuffix}`, {
+        headers: authToken ? {"X-Auth-Token" : authToken.toString()} : {},
+      });
 
       const json: ServerResponse = await res.json();
 
