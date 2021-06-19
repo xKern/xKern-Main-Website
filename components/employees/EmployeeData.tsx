@@ -28,8 +28,12 @@ const EmployeeData = ({ employee }: { employee: Employee }) => {
       value: employee.department
     },
     {
-      id: 'Mobile',
+      id: 'Personal Number',
       value: employee.mobile
+    },
+    {
+      id: 'Phone',
+      value: employee.officialNumber
     },
     {
       id: 'Email address',

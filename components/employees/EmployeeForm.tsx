@@ -31,6 +31,7 @@ export interface EmployeeDataFormFields {
   id?: string;
   department: string;
   mobile: string;
+  officialNumber?: string;
   email: string;
   bloodGroup: string;
   birthDate: string;
@@ -68,6 +69,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
     id: '',
     department: '',
     mobile: '',
+    officialNumber: '',
     email: '',
     bloodGroup: '',
     birthDate: '',
@@ -137,6 +139,7 @@ const EmployeeForm = ({ send }: EmployeeFormParams) => {
     'middleName' : 'Middle Name',
     'identification' : 'Aadhaar',
     'bloodGroup' : 'Blood Group',
+    'officialNumber' : 'Official Number',
     'joiningDate' : 'Joining Date',
     'maritalStatus' : 'Marital Status',
     'firstName' : 'First Name'
